@@ -1,9 +1,11 @@
 package com.service;
 
 import com.common.ServerResponse;
-import org.json.JSONObject;
+import com.pojo.RestaurantInfo;
 
 public interface IRecommendService {
 	ServerResponse<String> getRecommend(String term, String location, String latitude,
 											String longitude, String price);
+	ServerResponse<String> getRecommend(RestaurantInfo restaurantInfo);
+	ServerResponse<String> getRecommendByID(String restaurantID);
 }

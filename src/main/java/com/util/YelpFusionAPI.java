@@ -10,20 +10,26 @@ import org.json.JSONObject;
 
 public class YelpFusionAPI {
 
-	public static JSONArray searchRestaurants(String term, String location, String latitude,
+	private static final String API_KEY = "bvyEMh11Tx1VKb72hUhPHdoH62D3a-0vDQcI9vmJRKLBf0I5Ndj0mG302jWB1NVt2jUROSmZRwMn37JunF1xkHJM1oVgXlpcgMXSMLjvFe5usDP3HOT403mKu-mpXnYx";
+
+	public static JSONObject searchRestaurants(String term, String location, String latitude,
 											  String longitude, String price) {
 		return searchRestaurantsWithLocation(term, location, latitude, longitude, price);
 	}
 
-	public static JSONArray searchRestaurants(String term, String latitude,
+	public static JSONObject searchRestaurants(String term, String latitude,
 											  String longitude, String price) {
 		return searchRestaurantsWithoutLocation(term, latitude, longitude, price);
 	}
 
-	private static JSONArray searchRestaurantsWithLocation(String term, String location, String latitude,
+	public static JSONObject searchRestaurantsByID(String restaurantID) {
+		return searchRestaurantsByIDPrivate(restaurantID);
+	}
+
+	private static JSONObject searchRestaurantsWithLocation(String term, String location, String latitude,
 											   String longitude, String price) {
 		OkHttpClient httpClient = new OkHttpClient();
-		String API_KEY = "bvyEMh11Tx1VKb72hUhPHdoH62D3a-0vDQcI9vmJRKLBf0I5Ndj0mG302jWB1NVt2jUROSmZRwMn37JunF1xkHJM1oVgXlpcgMXSMLjvFe5usDP3HOT403mKu-mpXnYx";
+		//String API_KEY = "bvyEMh11Tx1VKb72hUhPHdoH62D3a-0vDQcI9vmJRKLBf0I5Ndj0mG302jWB1NVt2jUROSmZRwMn37JunF1xkHJM1oVgXlpcgMXSMLjvFe5usDP3HOT403mKu-mpXnYx";
 		Request request = new Builder()
 				//sort by rating
 				.url("https://api.yelp.com/v3/businesses/search?term=" + term
@@ -37,19 +43,19 @@ public class YelpFusionAPI {
 		try {
 			Response response = httpClient.newCall(request).execute();
 			JSONObject jsonObject = new JSONObject(response.body().string().trim());       // parser
-			JSONArray myResponse = (JSONArray)jsonObject.get("businesses");
-			return myResponse;
+			//JSONArray myResponse = (JSONArray)jsonObject.get("businesses");
+			return jsonObject;
 
 		} catch (IOException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 
-	private static JSONArray searchRestaurantsWithoutLocation(String term, String latitude,
+	private static JSONObject searchRestaurantsWithoutLocation(String term, String latitude,
 											  String longitude, String price) {
 		OkHttpClient httpClient = new OkHttpClient();
-		String API_KEY = "bvyEMh11Tx1VKb72hUhPHdoH62D3a-0vDQcI9vmJRKLBf0I5Ndj0mG302jWB1NVt2jUROSmZRwMn37JunF1xkHJM1oVgXlpcgMXSMLjvFe5usDP3HOT403mKu-mpXnYx";
+		//String API_KEY = "bvyEMh11Tx1VKb72hUhPHdoH62D3a-0vDQcI9vmJRKLBf0I5Ndj0mG302jWB1NVt2jUROSmZRwMn37JunF1xkHJM1oVgXlpcgMXSMLjvFe5usDP3HOT403mKu-mpXnYx";
 		Request request = new Builder()
 				//sort by rating
 				.url("https://api.yelp.com/v3/businesses/search?term=" + term
@@ -62,12 +68,37 @@ public class YelpFusionAPI {
 		try {
 			Response response = httpClient.newCall(request).execute();
 			JSONObject jsonObject = new JSONObject(response.body().string().trim());       // parser
-			JSONArray myResponse = (JSONArray)jsonObject.get("businesses");
-			return myResponse;
+			//JSONArray myResponse = (JSONArray)jsonObject.get("businesses");
+			return jsonObject;
+
+		} catch (IOException e) {
+			//e.printStackTrace();
+			return null;
+		}
+		//return null;
+	}
+
+	private static JSONObject searchRestaurantsByIDPrivate(String restaurantID) {
+		OkHttpClient httpClient = new OkHttpClient();
+		//String API_KEY = "bvyEMh11Tx1VKb72hUhPHdoH62D3a-0vDQcI9vmJRKLBf0I5Ndj0mG302jWB1NVt2jUROSmZRwMn37JunF1xkHJM1oVgXlpcgMXSMLjvFe5usDP3HOT403mKu-mpXnYx";
+		Request request = new Builder()
+				//sort by rating
+				.url("https://api.yelp.com/v3/businesses/" + restaurantID)
+				.get()
+				.addHeader("authorization", "Bearer" + " " + API_KEY)
+				.build();
+
+		try {
+			Response response = httpClient.newCall(request).execute();
+			JSONObject jsonObject = new JSONObject(response.body().string().trim());       // parser
+			return jsonObject;
 
 		} catch (IOException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return null;
+		//return null;
 	}
+
+
 }
