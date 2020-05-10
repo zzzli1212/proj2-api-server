@@ -35,3 +35,27 @@ success
         ...
     }
 }
+
+
+
+
+
+ip：/yelp-fusion/requestRecommendByID.do
+
+input String restaurantID
+
+output 
+
+fail
+
+    {
+        "status": 1,
+        "msg": "No result"
+    }
+
+{
+    "status": 0,
+    "data": {
+        ...
+    }
+}
