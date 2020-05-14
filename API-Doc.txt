@@ -1,0 +1,64 @@
+Yelp Fusion API
+
+ip：/yelp-fusion/requestRecommend.do
+
+post (the code needs post to request)
+
+request:
+
+String term, String location, double latitude, double longitude, String price
+
+i.e.
+		String term = "Chinese";                       // term
+		String location = "New York, NY";            // location
+		String latitude = "40.70544486444615";
+		String longitude = "-73.99429321289062";
+		String price = "1";                 //  1 = $, 2 = $$, 3 = $$$, 4 = $$$$
+
+
+
+
+response (.json）， data(.json):
+
+fail
+
+    {
+        "status": 1,
+        "msg": "No result"
+    }
+
+success
+
+{
+    "status": 0,
+    "data": {
+        ...
+    }
+}
+
+
+
+
+
+ip：/yelp-fusion/requestRecommendByID.do
+
+Request:
+  String restaurantID
+
+
+output:
+response (.json）， data(.json):
+
+fail
+
+    {
+        "status": 1,
+        "msg": "No result"
+    }
+
+{
+    "status": 0,
+    "data": {
+        ...
+    }
+}
