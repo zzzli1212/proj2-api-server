@@ -2,6 +2,7 @@ package com.service;
 
 import com.common.ServerResponse;
 import com.pojo.RestaurantInfo;
+import org.json.JSONObject;
 
 public interface IRecommendService {
 	ServerResponse<String> getRecommend(String term, String location, String latitude,

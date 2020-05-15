@@ -26,6 +26,15 @@ public class YelpFusionAPI {
 		return searchRestaurantsByIDPrivate(restaurantID);
 	}
 
+	public static JSONObject requestRestaurantInfo(JSONObject jsonObject) {
+		JSONObject restaurantInfo = new JSONObject();
+		restaurantInfo.put("name", jsonObject.get("name").toString());
+		restaurantInfo.put("url", jsonObject.get("url").toString());
+		restaurantInfo.put("image_url", jsonObject.get("image_url").toString());
+		restaurantInfo.put("categories", jsonObject.get("categories").toString());
+		return restaurantInfo;
+	}
+
 	private static JSONObject searchRestaurantsWithLocation(String term, String location, String latitude,
 											   String longitude, String price) {
 		OkHttpClient httpClient = new OkHttpClient();

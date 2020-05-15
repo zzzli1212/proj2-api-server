@@ -83,7 +83,7 @@ public class RecommendServiceImpl implements IRecommendService {
 		if(jsonObject == null || jsonObject.has("url") == false) {
 			return ServerResponse.createByErrorMessage("No restaurant URL found according to this ID");
 		}
-		System.out.println("jsonObject = " + jsonObject.toString());
-		return ServerResponse.createBySuccess("Successfully found restaurants", jsonObject.toString());
+		JSONObject restaurantInfo = YelpFusionAPI.requestRestaurantInfo(jsonObject);
+		return ServerResponse.createBySuccess("Successfully found restaurants", restaurantInfo.toString());
 	}
 }

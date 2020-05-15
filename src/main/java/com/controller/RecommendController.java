@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.json.JSONObject;
 
 @Controller
 @RequestMapping("/yelp-fusion/")
@@ -38,7 +39,6 @@ public class RecommendController {
 	@RequestMapping(value = "requestRecommendByID.do", method = RequestMethod.POST)
 	@ResponseBody
 	public ServerResponse<String> getRecommendByID(String restaurantID){
-		System.out.println("restaurantID = " + restaurantID);
 		ServerResponse<String> response = iRecommendService.getRecommendByID(restaurantID);
 		return response;
 	}
