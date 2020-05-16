@@ -43,12 +43,5 @@ public class RecommendController {
 		return response;
 	}
 
-	@RequestMapping(value = "test.do")
-	@ResponseBody
-	public ServerResponse<String> getRecommend(){
-		String str = "this is port";
-		System.out.println(str);
-		return ServerResponse.createBySuccess("successfully", str);
-	}
 
 }

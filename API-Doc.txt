@@ -1,8 +1,8 @@
-Yelp Fusion API
+Yelp Fusion API Doc
 
-ip：/yelp-fusion/requestRecommend.do
-
-post (the code needs post to request)
+status 0 means success, 1 means failure
+========================================================================================
+ip：/yelp-fusion/requestRecommend.do  (POST)
 
 request:
 
@@ -20,27 +20,25 @@ i.e.
 
 response (.json）， data(.json):
 
-fail
+fail:
 
     {
         "status": 1,
         "msg": "No result"
     }
 
-success
+success:
 
-{
-    "status": 0,
-    "data": {
+    {
+        "status": 0,
+        "data": {
         ...
+        }
     }
-}
 
 
 
-
-
-ip：/yelp-fusion/requestRecommendByID.do
+ip：/yelp-fusion/requestRecommendByID.do (POST)
 
 Request:
   String restaurantID
@@ -49,16 +47,72 @@ Request:
 output:
 response (.json）， data(.json):
 
-fail
+fail:
 
     {
         "status": 1,
         "msg": "No result"
     }
 
-{
-    "status": 0,
-    "data": {
-        ...
+success:
+
+    {
+        "status": 0,
+        "data": {
+            ...
+        }
     }
-}
+
+
+========================================================================================
+
+ip：/p2p/getP2pID.do  (POST)
+
+Success:
+    {
+        "status": 0,
+        "msg": "Successfully Found Other Online People",
+        "data": "666666 555555 444444"
+    }
+
+
+fail:
+
+    {
+        "status": 1,
+        "msg": "Input ID is invalid: Duplicate ID Found"
+    }
+
+
+ip：/p2p/deleteByID.do  (POST)
+
+    {
+        "status": 1,
+        "msg": "No Input ID Found in the File"
+    }
+
+    {
+        "status": 0,
+        "data": "Successfully Deleted ID: 666666"
+    }
+
+
+
+ip：/p2p/deleteAllID.do  (GET)
+
+
+success:
+
+    {
+        "status": 0,
+        "data": "File deleted successfully"
+    }
+
+fail:
+
+    {
+        "status": 1,
+        "msg": "File Not Exist; Failed to delete the file"
+    }
+
+
