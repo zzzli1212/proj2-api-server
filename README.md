@@ -1,7 +1,10 @@
 Yelp Recommendation Service
 
-Provide Two API:
-  1. Search restaurants by tern, location, latitude, longitude and price;
-  2. Search a restaurants by its id
+Provide 6 API's for Restaurants and P2P:
+    1. Restaurants API:
+        （i）search by ID
+        (ii) search by term, location, price, latitude and longitude
+    2. P2P API:
+        support get,save,delete and deleteAll
 
-To use API, please see the API doc.
+To use API, please see the API-doc.txt.

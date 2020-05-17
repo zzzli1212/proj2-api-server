@@ -2,7 +2,7 @@ Yelp Fusion API Doc
 
 status 0 means success, 1 means failure
 ========================================================================================
-ip：/yelp-fusion/requestRecommend.do  (POST)
+ip：/yelp-fusion/requestRecommend.do  (Method = POST)
 
 request:
 
@@ -38,7 +38,7 @@ success:
 
 
 
-ip：/yelp-fusion/requestRecommendByID.do (POST)
+ip：/yelp-fusion/requestRecommendByID.do (Method = POST)
 
 Request:
   String restaurantID
@@ -66,7 +66,7 @@ success:
 
 ========================================================================================
 
-ip：/p2p/getP2pID.do  (POST)
+ip：/p2p/getID.do  (Method = GET)
 
 Success:
     {
@@ -76,21 +76,22 @@ Success:
     }
 
 
-fail:
 
+ip：/p2p/saveID.do  (Method = POST)
+request: String inputID
+
+success:
     {
-        "status": 1,
-        "msg": "Input ID is invalid: Duplicate ID Found"
+        "status": 0,
+        "msg": "Successfully saved ID: 333333"
     }
 
 
-ip：/p2p/deleteByID.do  (POST)
 
-    {
-        "status": 1,
-        "msg": "No Input ID Found in the File"
-    }
+ip：/p2p/deleteByID.do?inputID=val  (Method = DELETE)
+request: String inputID, should put the inputID=val after /p2p/deleteByID.do?
 
+success:
     {
         "status": 0,
         "data": "Successfully Deleted ID: 666666"
@@ -98,8 +99,7 @@ ip：/p2p/deleteByID.do  (POST)
 
 
 
-ip：/p2p/deleteAllID.do  (GET)
-
+ip：/p2p/deleteAllID.do  (Method = DELETE)
 
 success:
 
@@ -108,11 +108,5 @@ success:
         "data": "File deleted successfully"
     }
 
-fail:
-
-    {
-        "status": 1,
-        "msg": "File Not Exist; Failed to delete the file"
-    }
 
 

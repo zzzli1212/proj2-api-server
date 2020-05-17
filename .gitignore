@@ -1,4 +1,5 @@
 *.class
+P2pID.txt
 
 #package file
 *.war

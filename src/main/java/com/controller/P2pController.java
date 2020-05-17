@@ -17,23 +17,28 @@ public class P2pController {
 	@Autowired
 	private IP2pService iP2pService;
 
-	@RequestMapping(value = "getP2pID.do", method = RequestMethod.POST)
+	@RequestMapping(value = "getID.do", method = RequestMethod.GET)
 	@ResponseBody
-	public ServerResponse<String> getP2pID(String inputID) throws IOException {
-		System.out.println("inputID = " + inputID);
-		ServerResponse<String> response = iP2pService.getP2pID(inputID);
-		System.out.println();
+	public ServerResponse<String> getP2pID() throws IOException {
+		ServerResponse<String> response = iP2pService.getID();
 		return response;
  	}
 
-	@RequestMapping(value = "deleteAllID.do", method = RequestMethod.GET)
+	@RequestMapping(value = "saveID.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ServerResponse<String> saveID(String inputID) throws IOException {
+		ServerResponse<String> response = iP2pService.saveID(inputID);
+		return response;
+	}
+
+	@RequestMapping(value = "deleteAllID.do", method = RequestMethod.DELETE)
 	@ResponseBody
 	public ServerResponse<String> deleteAllID() throws IOException {
 		ServerResponse<String> response = iP2pService.deleteAllID();
 		return response;
 	}
 
-	@RequestMapping(value = "deleteByID.do", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteByID.do", method = RequestMethod.DELETE)
 	@ResponseBody
 	public ServerResponse<String> deleteByID(String inputID) throws IOException {
 		ServerResponse<String> response = iP2pService.deleteByID(inputID);
