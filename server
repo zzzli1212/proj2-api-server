@@ -1,0 +1,74 @@
+ip：localhost:http://127.0.0.1:5000/  (Method = GET)
+
+request:
+
+string:user_id fload:longtitude ,latitude
+
+i.e.
+		String term = "zhihao li";                       // term
+		String latitude = "40";
+		String longitude = "-77";
+
+
+
+
+if user_id is new_user:
+return:{
+    "0": "UPKWR2kaOne5d4AmdqdZlg",
+    "1": "Ul6JwluSTm12PVDIqnNaTg",
+    "2": "pGwfOqNEL8FbMUFspJdAMA",
+    "3": "caGXS6ubNTlv91ZZyoirjQ",
+    "4": "Fozo0B-y42EhRMomR0K5vQ",
+    "5": "_8gb0Osj9CdDbKrxvUAytw",
+    "6": "wjLgM9Ybe5shoUPRrGMmsQ",
+    "7": "cpxobfqM8IuF78WUfrj9_Q",
+    "8": "J9f-9Prw2YVM-fiZqv2fmQ",
+    "9": "4OzzW_Zw9g_rjvPlji466Q",
+    "10": 1
+}
+the last row means the user is a new_user(1 for true, 0 for false)
+if user_id is old_user:
+{
+    "0": {
+        "business id": "oS96aJIHFWcFAlGHKKXjaw",
+        "id": 0
+    },
+    "1": {
+        "business id": "i-2OzvZUDtvKCMq1vcRSZg",
+        "id": 1
+    },
+    "2": {
+        "business id": "c0yPNU-BqS65u0vIKP7P0w",
+        "id": 2
+    },
+    "3": {
+        "business id": "KTPRYqiFdLowAUEAnN7e3g",
+        "id": 3
+    },
+    "4": {
+        "business id": "ysJo5Jdo29XOBCnKrbUKWg",
+        "id": 4
+    },
+    "5": {
+        "business id": "ODTI9W7fHMKNWZ3g8VcFUg",
+        "id": 5
+    },
+    "6": {
+        "business id": "caGXS6ubNTlv91ZZyoirjQ",
+        "id": 6
+    },
+    "7": {
+        "business id": "mqluTlSbZSstVyNKU8G9vw",
+        "id": 7
+    },
+    "8": {
+        "business id": "zuUWG7OdMv6awFRYhEYT5Q",
+        "id": 8
+    },
+    "9": {
+        "business id": "P1a2WApEoMb65s14RmqV2g",
+        "id": 9
+    },
+    "10": 0
+}
+the last row means the user is a old_user(1 for true, 0 for false)
