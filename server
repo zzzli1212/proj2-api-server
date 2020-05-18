@@ -1,0 +1,76 @@
+localhost:http://127.0.0.1:5000/
+
+request:
+
+String user_id, double latitude, double longitude
+
+i.e.
+		String term = "zhihao li ";                       
+		String latitude = "40=";
+		String longitude = "-77";
+output
+if user_id == new_user
+random give them 10 restaurants to rate
+sample output:
+{
+    "0": "P4uQXhzxjKFBtnqfx_O4tA",
+    "1": "STWeDYptg4-GOce1lW9W5Q",
+    "2": "Gke_dDm4Chc4BtYkbgLZ5Q",
+    "3": "KTPRYqiFdLowAUEAnN7e3g",
+    "4": "Fozo0B-y42EhRMomR0K5vQ",
+    "5": "oeW0vIYd3rUnAPgmD4fEFg",
+    "6": "hcFSc0OHgZJybnjQBrL_8Q",
+    "7": "qFJ_kdfLdNODKFUY4t0qVg",
+    "8": "2ktZ89dpmOAhBcECa6Ml2g",
+    "9": "TabGgpRrdIis5LDC70TIqg",
+    "10": 1
+}
+last row indicates the user_id is a new user(1 for true,0 for false)
+if user_id == old_user
+give then top 10 restaurant
+{
+    "0": {
+        "business id": "oS96aJIHFWcFAlGHKKXjaw",
+        "id": 0
+    },
+    "1": {
+        "business id": "i-2OzvZUDtvKCMq1vcRSZg",
+        "id": 1
+    },
+    "2": {
+        "business id": "c0yPNU-BqS65u0vIKP7P0w",
+        "id": 2
+    },
+    "3": {
+        "business id": "KTPRYqiFdLowAUEAnN7e3g",
+        "id": 3
+    },
+    "4": {
+        "business id": "ysJo5Jdo29XOBCnKrbUKWg",
+        "id": 4
+    },
+    "5": {
+        "business id": "ODTI9W7fHMKNWZ3g8VcFUg",
+        "id": 5
+    },
+    "6": {
+        "business id": "caGXS6ubNTlv91ZZyoirjQ",
+        "id": 6
+    },
+    "7": {
+        "business id": "mqluTlSbZSstVyNKU8G9vw",
+        "id": 7
+    },
+    "8": {
+        "business id": "zuUWG7OdMv6awFRYhEYT5Q",
+        "id": 8
+    },
+    "9": {
+        "business id": "P1a2WApEoMb65s14RmqV2g",
+        "id": 9
+    },
+    "10": 0
+}
+last row indicates the user_id is a old user(1 for true,0 for false)
+
+========================================================================================
